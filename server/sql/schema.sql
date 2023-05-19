@@ -19,4 +19,15 @@ SET row_security = off;
 --
 -- PostgreSQL database dump complete
 --
+set client_min_messages to warning;
 
+create schema "public";
+
+CREATE TABLE "game" (
+    "gameId" serial NOT NULL,
+    "gameName" TEXT NOT NULL,
+    "createdAt" TIMESTAMPTZ NOT NULL default now(),
+    CONSTRAINT "games_pk" PRIMARY KEY ("gameId")
+) WITH (
+  OIDS=FALSE
+);
