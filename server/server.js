@@ -3,8 +3,9 @@ const cors = require('cors')
 const app = express()
 const pg = require('pg');
 const port = 8000
+console.log(process.env.DATABASE_URL)
 const db = new pg.Pool({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: 'postgres://dev:dev@localhost/raidmanager',
   ssl: {
     rejectUnauthorized: false
   }

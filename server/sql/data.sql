@@ -1,6 +1,6 @@
 insert into game
- ("gameId", "gameName")
+ ("gameName")
  values
-  ('0', 'test0');
-  ('1', 'test1');
-  ('2', 'test2');
+  ('test0'),
+  ('test1'),
+  ('test2');
