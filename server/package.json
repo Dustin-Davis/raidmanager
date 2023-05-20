@@ -4,8 +4,6 @@
   "description": "raidmanager server",
   "main": "server.js",
   "scripts": {
-    "sql-apply": "psql postgres < ./sql/schema.sql",
-    "sql-dump": "pg_dump --schema-only postgres > ./sql/schema.sql",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "db:import": "bash scripts/db-import.sh"
