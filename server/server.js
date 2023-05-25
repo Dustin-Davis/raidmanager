@@ -34,11 +34,11 @@ app.post('/api/game', (req, res) => {
   const body = req.body;
 
   const sql = `
-  insert into "game" ("gameId", "gameName")
-  values ($1, $2, $3)
+  insert into "game" ("gameName")
+  values ($1)
   returning *
   `;
-  const values = [body.gameId, body.gameName];
+  const values = [body.gameName];
 
   db.query(sql, values)
     .then(result => {
