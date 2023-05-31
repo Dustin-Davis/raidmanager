@@ -1,4 +1,3 @@
-
 -- DANGER: this is NOT how to do it in the real world.
 -- `drop schema` INSTANTLY ERASES EVERYTHING.
 drop schema "public" cascade;
