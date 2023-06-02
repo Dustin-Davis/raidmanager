@@ -34,11 +34,11 @@ app.post('/api/game', (req, res) => {
   const body = req.body;
 
   const sql = `
-  insert into "game" ("gameId", "gameName")
-  values ($1, $2, $3)
+  insert into "game" ("gameName")
+  values ($1)
   returning *
   `;
-  const values = [body.gameId, body.gameName];
+  const values = [body.gameName];
 
   db.query(sql, values)
     .then(result => {
@@ -46,11 +46,15 @@ app.post('/api/game', (req, res) => {
       res.status(201).json(games);
     })
     .catch(error => {
-      // eslint-disable-next-line no-console
-      console.log(error);
-      res.status(500).json({ error: 'An unexpected error occurred.' });
+      if (error = !body.gameName) {
+        console.log({ error: 'Names are required for games' });
+        res.status(400).json({ error: 'Names are required for games' });
+      } else {
+        console.log(error);
+        res.status(500).json({ error: 'An unexpected error occurred.' });
+      }
     });
-})
+});
 
 app.listen(port, () => {
   console.log(`server listening on port ${port}`)
