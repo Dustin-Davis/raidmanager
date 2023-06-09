@@ -9,8 +9,6 @@ CREATE TABLE "game" (
     "gameName" TEXT NOT NULL,
     "createdAt" TIMESTAMPTZ NOT NULL default now(),
     CONSTRAINT "games_pk" PRIMARY KEY ("gameId")
-) WITH (
-  OIDS=FALSE
 );
 
 CREATE TABLE "raidInstance" (
@@ -22,9 +20,6 @@ CREATE TABLE "raidInstance" (
     "selectedRoles" TEXT NOT NULL,
     "createdAt" TIMESTAMPTZ NOT NULL default now(),
     CONSTRAINT "raidInstance_pk" PRIMARY KEY ("raidInstanceId")
-) WITH (
-  OIDS=FALSE
 );
 
 ALTER TABLE "raidInstance" ADD CONSTRAINT "raidInstance_fk0" FOREIGN KEY ("raidId") REFERENCES "raid"("raidId")
-ALTER TABLE "raidInstance" ADD CONSTRAINT "raidInstance_fk0" FOREIGN KEY ("gameId") REFERENCES "game"("gameId")
