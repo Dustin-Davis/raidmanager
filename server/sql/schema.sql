@@ -15,13 +15,11 @@ CREATE TABLE "game" (
 );
 
 CREATE TABLE "user" (
-    "userId" INTEGER GENERATED ALWAYS AS IDENTITY NOT NULL,
-    "userName" TEXT NOT NULL,
-    "displayName" TEXT NOT NULL,
-    "googleAuth" TEXT NOT NULL,
-    "profileImage" TEXT NOT NULL,
-    "createdAt" TIMESTAMPTZ NOT NULL default now(),
+    "user_Id" INTEGER GENERATED ALWAYS AS IDENTITY NOT NULL,
+    "user_Name" TEXT NOT NULL,
+    "display_Name" TEXT NOT NULL,
+    "google_Auth" TEXT NOT NULL,
+    "profile_Image" TEXT NOT NULL,
+    "created_At" TIMESTAMPTZ NOT NULL default now(),
     CONSTRAINT "user_pk" PRIMARY KEY ("userId")
-) WITH (
-  OIDS=FALSE
 );
