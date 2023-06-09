@@ -14,15 +14,13 @@ CREATE TABLE "game" (
 );
 
 CREATE TABLE "raid" (
-    "raidId" INTEGER GENERATED ALWAYS AS IDENTITY NOT NULL,
-    "raidName" TEXT NOT NULL,
+    "raid_Id" INTEGER GENERATED ALWAYS AS IDENTITY NOT NULL,
+    "raid_Name" TEXT NOT NULL,
     "roles" TEXT NOT NULL,
-    "gameId" INTEGER NOT NULL,
-    "numOfPeople" TEXT NOT NULL,
-    "createdAt" TIMESTAMPTZ NOT NULL default now(),
-    CONSTRAINT "raids_pk" PRIMARY KEY ("raidId")
-) WITH (
-  OIDS=FALSE
+    "game_Id" INTEGER NOT NULL,
+    "num_Of_People" TEXT NOT NULL,
+    "created_At" TIMESTAMPTZ NOT NULL default now(),
+    CONSTRAINT "raids_pk" PRIMARY KEY ("raid_Id")
 );
 
-ALTER TABLE "raid" ADD CONSTRAINT "raid_fk0" FOREIGN KEY ("gameId") REFERENCES "game"("gameId")
+ALTER TABLE "raid" ADD CONSTRAINT "raid_fk0" FOREIGN KEY ("game_Id") REFERENCES "game"("game_Id")
