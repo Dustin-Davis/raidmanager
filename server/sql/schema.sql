@@ -19,7 +19,7 @@ CREATE TABLE "raid_instance" (
     "raid_leader" TEXT NOT NULL,
     "selected_roles" TEXT NOT NULL,
     "created_at" TIMESTAMPTZ NOT NULL default now(),
-    CONSTRAINT "raid_instance_pk" PRIMARY KEY ("raid_instance_Id")
+    CONSTRAINT "raid_instance_pk" PRIMARY KEY ("raid_instance_id")
 );
 
-ALTER TABLE "raid_instance" ADD CONSTRAINT "raid_instance_fk0" FOREIGN KEY ("raid_Id") REFERENCES "raid"("raid_Id")
+ALTER TABLE "raid_instance" ADD CONSTRAINT "raid_instance_fk0" FOREIGN KEY ("raid_id") REFERENCES "raid"("raid_id")
