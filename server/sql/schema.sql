@@ -24,6 +24,7 @@ CREATE TABLE "raid_instance" (
 );
 
 ALTER TABLE "raid_instance" ADD CONSTRAINT "raid_instance_fk0" FOREIGN KEY ("raid_id") REFERENCES "raid"("raid_id")
+ALTER TABLE "raid_instance" ADD CONSTRAINT "raid_instance_fk0" FOREIGN KEY ("user_id") REFERENCES "user"("user_id")
 
 CREATE TABLE "raid" (
     "raid_id" INTEGER GENERATED ALWAYS AS IDENTITY NOT NULL,
@@ -46,3 +47,16 @@ CREATE TABLE "user" (
     "created_at" TIMESTAMPTZ NOT NULL default now(),
     CONSTRAINT "user_pk" PRIMARY KEY ("user_id")
 );
+
+CREATE TABLE "user_display" (
+    "user_id" INTEGER NOT NULL,
+    "game_id" INTEGER NOT NULL,
+    "display_name" TEXT NOT NULL,
+    "raid_roles" TEXT NOT NULL,
+    "past_raids" TEXT NOT NULL,
+    "created_at" TIMESTAMPTZ NOT NULL default now(),
+    CONSTRAINT "user_display_pk" PRIMARY KEY ("user_display_id")
+);
+
+ALTER TABLE "user_display" ADD CONSTRAINT "user_display_fk0" FOREIGN KEY ("game_id") REFERENCES "game"("game_id")
+ALTER TABLE "user_display" ADD CONSTRAINT "user_display_fk0" FOREIGN KEY ("user_id") REFERENCES "user"("user_id")
