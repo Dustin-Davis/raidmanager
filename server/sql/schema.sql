@@ -24,7 +24,7 @@ CREATE TABLE "raid_instance" (
 );
 
 ALTER TABLE "raid_instance" ADD CONSTRAINT "raid_instance_fk0" FOREIGN KEY ("raid_id") REFERENCES "raid"("raid_id")
-ALTER TABLE "raid_instance" ADD CONSTRAINT "raid_instance_fk0" FOREIGN KEY ("user_id") REFERENCES "user"("user_id")
+ALTER TABLE "raid_instance" ADD CONSTRAINT "raid_instance_fk1" FOREIGN KEY ("user_id") REFERENCES "user"("user_id")
 
 CREATE TABLE "raid" (
     "raid_id" INTEGER GENERATED ALWAYS AS IDENTITY NOT NULL,
