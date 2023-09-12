@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react'
+import jwt_decode from "jwt-decode"
 import './App.css'
 
 function App() {
 
   function handelCallbackResponse(response) {
     console.log('Encoded JWT ID Token: ' + response.credential);
+    var userObject = jwt_decode(response.credential)
+    console.log(userObject);
   }
 
 
