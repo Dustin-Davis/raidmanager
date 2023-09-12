@@ -1,33 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect } from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-  fetch("http://localhost:8000").then(console.log)
+
+
+
+  useEffect(() => {
+    // this is here so the linter doesn't see google as  not defined
+    /* global google */
+    google.accounts.id.initialize({
+      client_id: "32320074669-e10phu5emi8q962i98siie3d1pl9jcoa.apps.googleusercontent.com",
+      callback: handelCallbackResponse
+    });
+
+    google.accounts.id.renderButton(
+      document.getElementById('signInDiv'),
+      { theme:"outline", size: "large" }
+    )
+  }, []); // nothing in the array means the useEffect will only run once
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+  <div id='signInDiv'></div>
     </>
   )
 }
