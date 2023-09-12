@@ -3,6 +3,9 @@ import './App.css'
 
 function App() {
 
+  function handelCallbackResponse(response) {
+    console.log('Encoded JWT ID Token: ' + response.credential);
+  }
 
 
   useEffect(() => {
